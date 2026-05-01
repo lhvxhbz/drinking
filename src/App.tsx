@@ -12,6 +12,7 @@ import DateDetailPage from '@/pages/date-detail-page'
 import NewLogPage from '@/pages/new-log-page'
 import StatsPage from '@/pages/stats-page'
 import FriendsPage from '@/pages/friends-page'
+import FriendDetailPage from '@/pages/friend-detail-page'
 import ExplorePage from '@/pages/explore-page'
 
 function ProtectedRoute() {
@@ -46,6 +47,7 @@ function App() {
             <Route path="/log/new" element={<NewLogPage />} />
             <Route path="/stats" element={<StatsPage />} />
             <Route path="/friends" element={<FriendsPage />} />
+            <Route path="/friends/:id" element={<FriendDetailPage />} />
             <Route path="/explore" element={<ExplorePage />} />
           </Route>
         </Route>
