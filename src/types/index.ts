@@ -16,7 +16,7 @@ export interface IDrinkLog {
   drink_name: string
   category: DrinkCategory
   brand: string | null
-  rating: number // 1-5
+  rating: number // 0.5-5, step 0.5
   comment: string | null
   photo_url: string | null
   is_recommended: boolean

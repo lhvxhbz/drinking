@@ -18,7 +18,7 @@ const schema = z.object({
   drink_name: z.string().min(1, '请输入饮品名称'),
   category: z.enum(['coffee', 'milk_tea', 'juice', 'soda', 'other']),
   brand: z.string().optional(),
-  rating: z.number().min(1).max(5),
+  rating: z.number().min(0.5).max(5).step(0.5),
   comment: z.string().optional(),
   log_date: z.string(),
 })
@@ -31,7 +31,7 @@ export function DrinkLogForm({ defaultDate }: { defaultDate?: string }) {
   const [drinkName, setDrinkName] = useState('')
   const [category, setCategory] = useState<DrinkCategory>('coffee')
   const [brand, setBrand] = useState('')
-  const [rating, setRating] = useState(3)
+  const [rating, setRating] = useState(3.5)
   const [comment, setComment] = useState('')
   const [logDate, setLogDate] = useState(defaultDate ?? format(new Date(), 'yyyy-MM-dd'))
   const [photoUrl, setPhotoUrl] = useState<string | null>(null)
