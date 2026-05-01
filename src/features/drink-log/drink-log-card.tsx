@@ -13,7 +13,15 @@ export function DrinkLogCard({ log, onClick }: DrinkLogCardProps) {
   return (
     <Card className="cursor-pointer hover:bg-accent/30 transition-colors" onClick={onClick}>
       <CardContent className="p-4 flex items-start gap-3">
-        <span className="text-2xl">{DRINK_CATEGORY_EMOJIS[log.category]}</span>
+        {log.photo_url ? (
+          <img
+            src={log.photo_url}
+            alt={log.drink_name}
+            className="w-16 h-16 rounded-md object-cover flex-shrink-0"
+          />
+        ) : (
+          <span className="text-2xl">{DRINK_CATEGORY_EMOJIS[log.category]}</span>
+        )}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
             <span className="font-medium truncate">{log.drink_name}</span>

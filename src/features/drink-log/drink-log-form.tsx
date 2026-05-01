@@ -12,6 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { DRINK_CATEGORY_LABELS, type DrinkCategory } from '@/types'
 import { StarRating } from './star-rating'
+import { PhotoUpload } from './photo-upload'
 
 const schema = z.object({
   drink_name: z.string().min(1, '请输入饮品名称'),
@@ -33,6 +34,7 @@ export function DrinkLogForm({ defaultDate }: { defaultDate?: string }) {
   const [rating, setRating] = useState(3)
   const [comment, setComment] = useState('')
   const [logDate, setLogDate] = useState(defaultDate ?? format(new Date(), 'yyyy-MM-dd'))
+  const [photoUrl, setPhotoUrl] = useState<string | null>(null)
   const [isRecommended, setIsRecommended] = useState(false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -56,7 +58,7 @@ export function DrinkLogForm({ defaultDate }: { defaultDate?: string }) {
       brand: brand || null,
       rating,
       comment: comment || null,
-      photo_url: null,
+      photo_url: photoUrl,
       is_recommended: isRecommended,
       log_date: logDate,
     })
@@ -128,6 +130,13 @@ export function DrinkLogForm({ defaultDate }: { defaultDate?: string }) {
               rows={3}
             />
           </div>
+
+          {user && (
+            <div className="space-y-2">
+              <Label>照片</Label>
+              <PhotoUpload userId={user.id} value={photoUrl} onChange={setPhotoUrl} />
+            </div>
+          )}
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
