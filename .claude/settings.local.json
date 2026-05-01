@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Bash(cp -r /tmp/drinklog-temp/* /tmp/drinklog-temp/.* /d/qpp-1/)",
+      "Bash(mv /tmp/CLAUDE.md.bak /d/qpp-1/CLAUDE.md)",
+      "Bash(npm install *)",
+      "Bash(npx shadcn@latest *)"
+    ]
+  }
+}
